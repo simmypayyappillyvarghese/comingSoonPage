@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Coming Soon Page of Base Apparel</title>
+        <meta charset="UF-8">
+        <meta name="description" content="Coming Soon page of the Base Apparel Brand">
+        <meta name="keywords" content="base apparel,coming soon">
+        <meta name="viewport" content="initial-scale=1.0,width=device-width">
+        <link rel="icon" href="./style/favicon-32x32.png">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+        <main>
+            <header class="content-header"><!-- Base Apparel brand logo -->
+                <img src="./style/logo.svg" alt="Brand Logo">
+            </header>
+            <article class="mainArticle">       
+                <section class="content-section">  
+                    <!--Content -->
+                    <section class="content-body">
+                    <h1>we're<br><span>coming soon</span></h1>
+                    <p>Hello fellow shoppers! We're currently building our new fashion store.
+                        Add your email below to stay up-to-date with announcements and our launch deals.
+                    </p>
+                    <!--Form Email Input-->
+                    <div class="input-div">  
+                    <input type="email" placeholder="Email Address" name="email"  id="email">
+                    <img src="./style/icon-arrow.svg" alt="input-arrow" class="input-arrow-image" onclick="validateEmail();">
+                     <img src="./style/icon-error.svg" alt="Error Icon" id="error" class="hideElement">   
+                    </div>    
+                    <small class="hideElement" id="errorMessage"></small>
+                </section>
+                </section>
+                <section class="image-section">
+                    <!--Image -->
+                </section>
+            </article>
+        </main>
+        <script>
+
+          
+            function validateEmail(){
+
+                let inputEmailElement=document.getElementById('email');
+                let inputEmail=inputEmailElement.value;
+
+                let regex=/^\S+@\S+\.\S+$/
+                let isValidEmail=regex.test(inputEmail);
+
+                let errorMessageElement=document.getElementById('errorMessage');
+                let errorElement=document.getElementById('error')
+
+                if(!isValidEmail){
+                errorElement.classList.add("showError");
+                errorMessageElement.innerHTML=`Please provide a valid email`;
+                errorMessageElement.classList.add('showMessage');
+                inputEmailElement.classList.add('changeBorderColor');
+                }
+
+                else{
+                    errorElement.classList.remove("showError");
+                    inputEmailElement.classList.remove('changeBorderColor');
+                    errorMessageElement.innerHTML=` Email Submitted !`;
+                    errorMessageElement.style.color='hsl(0, 36%, 70%)';
+                    console.log(errorMessageElement);
+                }
+                inputEmailElement.value=``;
+
+            }
+        </script>
+    </body>
+</html>
